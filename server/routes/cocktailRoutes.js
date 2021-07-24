@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 
-router.get('/', (req, res) => {
+router.get('/home', (req, res) => {
     res.send('hi')
 })
 
@@ -34,21 +34,22 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
         const measureString = "strMeasure" + (count + 1).toString()
 
         const ingredient = apiData[ingredientString]
-        const measure = apiData[measureString]
+        const measures = apiData[measureString]
 
         ingredientsList.push(ingredient)
-        measuresList.push(measure)
+        measuresList.push(measures)
 
         count++
     }
 
 
     const sendObject = {
+        "name": cocktailName,
         "cocktailGlass": cocktailGlass, 
         "instructions": instructions,
         "imageLink": imageLink, 
         "ingredients": ingredientsList,
-        "measure": measuresList
+        "measures": measuresList
     }
 
     res.json(sendObject)
