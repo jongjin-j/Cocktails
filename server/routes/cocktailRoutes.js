@@ -12,7 +12,6 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
     
     const request = await axios.get(api_URL)
     
-    console.log(request)
     if(request.data.drinks === null){
         return res.status(404).json({'error': 'does not exist'})
     }
@@ -22,6 +21,9 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
     const cocktailGlass = apiData.strGlass
     const instructions = apiData.strInstructions
     const imageLink = apiData.strDrinkThumb
+
+    const ingredientsList = []
+    const measuresList = []
 
     // a function to measure how long the ingredients are, put it into an object //
 
@@ -34,7 +36,9 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
         const ingredient = apiData[ingredientString]
         const measure = apiData[measureString]
 
-        console.log(ingredient, measure)
+        ingredientsList.push(ingredient)
+        measuresList.push(measure)
+
         count++
     }
 
@@ -43,8 +47,8 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
         "cocktailGlass": cocktailGlass, 
         "instructions": instructions,
         "imageLink": imageLink, 
-        "ingredients": [],
-        "measure": []
+        "ingredients": ingredientsList,
+        "measure": measuresList
     }
 
     res.json(sendObject)
