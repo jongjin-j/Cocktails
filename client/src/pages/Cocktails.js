@@ -1,5 +1,5 @@
 import React from 'react'
-import CocktailDetail from '../pages/CocktailDetail'
+import CocktailDetail from '../components/CocktailDetail'
 import {Route, Switch, useRouteMatch, useParams } from 'react-router-dom';
 
 

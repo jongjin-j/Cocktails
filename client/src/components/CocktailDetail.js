@@ -32,7 +32,7 @@ export default function CocktailDetail({ cocktail }) {
             <p>Ingredients: </p>
             {ingredients.map(ingr => {
               return(
-                <div>
+                <div key={ingr.name}>
                   <p>{ingr.name}</p>
                   <p>{ingr.measure}</p>
                 </div>
