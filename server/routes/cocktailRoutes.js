@@ -3,12 +3,12 @@ const router = express.Router()
 const axios = require('axios')
 
 router.get('/home', (req, res) => {
-    res.send('hi')
+    res.send('home')
 })
 
 router.get(`/cocktail/:cocktail`, async (req, res) => {
     const cocktailName = req.params.cocktail
-    const api_URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}` //add cocktail name
+    const api_URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`
     
     const request = await axios.get(api_URL)
     
@@ -18,12 +18,12 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
     
     const apiData = request.data.drinks[0]
 
+    const actualCocktailName = apiData.strDrink
     const cocktailGlass = apiData.strGlass
     const instructions = apiData.strInstructions
     const imageLink = apiData.strDrinkThumb
 
     const ingredientsList = []
-    const measuresList = []
 
     // a function to measure how long the ingredients are, put it into an object //
 
@@ -33,23 +33,22 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
         const ingredientString = "strIngredient" + (count + 1).toString()
         const measureString = "strMeasure" + (count + 1).toString()
 
-        const ingredient = apiData[ingredientString]
+        const ingredientName = apiData[ingredientString]
         const measures = apiData[measureString]
 
-        ingredientsList.push(ingredient)
-        measuresList.push(measures)
+        const ingredientObject = {"name": ingredientName, "measure": measures}
+        ingredientsList.push(ingredientObject)
 
         count++
     }
 
 
     const sendObject = {
-        "name": cocktailName,
+        "name": actualCocktailName,
         "cocktailGlass": cocktailGlass, 
         "instructions": instructions,
         "imageLink": imageLink, 
-        "ingredients": ingredientsList,
-        "measures": measuresList
+        "ingredients": ingredientsList
     }
 
     res.json(sendObject)
