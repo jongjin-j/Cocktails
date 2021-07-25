@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Search from '../components/Search'
+import CocktailList from '../components/CocktailList'
+import EmptyList from '../components/EmptyList'
+import '../App.css'
 
 const cocktails = [
     { id: '1', name: 'Mojito' },
@@ -28,27 +31,24 @@ const filterCocktails = (cocktailList, input) => {
 
 export default function Home() {
 
-    const [serachInput, setSearchInput] = useState('')
+    const [searchInput, setSearchInput] = useState('')
 
-    const filteredList = filterCocktails(cocktails, serachInput)
+    const filteredList = filterCocktails(cocktails, searchInput)
 
     const handleChange = (e) => {
         setSearchInput(e.target.value)
     }
 
     return (
-        <div>
-            <h2>Home</h2>
-            <Search inputHandler={handleChange}/>
-            <ul>
-                {filteredList.slice(0, 10).map((c) => {
-                    return(
-                        <a href={'/cocktails/' + c.name} key={c.id}>
-                            <li>{c.name}</li>
-                        </a>
-                    )
-                })}
-            </ul>
+        <div className="home">
+            <h2>Cocktail Search</h2>
+            <div className="container">
+                <Search inputHandler={handleChange}/>
+                {searchInput !== '' ? 
+                    <CocktailList filteredList={filteredList}/> :
+                    <EmptyList/>
+                }
+            </div>
         </div>
     )
 }

@@ -1,0 +1,27 @@
+body {
+    background-color: beige;
+}
+
+.home h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.container {
+    width: 30em;
+    margin: 0 auto;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+
+.container li {
+    margin-top: 10px;
+    margin-left: -35px;
+    font-size: 1.5em;
+    text-align: left;
+    list-style: none;
+}
+
