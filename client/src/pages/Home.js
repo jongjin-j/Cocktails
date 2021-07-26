@@ -5,21 +5,9 @@ import EmptyList from '../components/EmptyList'
 import Navbar from '../components/Navbar'
 import '../App.css'
 import { useHistory } from 'react-router-dom'
+import data from '../data/data.json'
 
-
-const cocktails = [
-    { id: '1', name: 'Mojito' },
-    { id: '2', name: 'Margarita' },
-    { id: '3', name: 'Moscow Mule' },
-    { id: '4', name: 'Tequila Sour' },
-    { id: '5', name: 'Karsk' },
-    { id: '6', name: 'Stinger' },
-    { id: '7', name: 'The Last Word' },
-    { id: '8', name: 'Bellini Martini' },
-    { id: '9', name: 'Victory Collins' },
-    { id: '10', name: 'Nuked Hot Chocolate' },
-    { id: '11', name: 'Whiskey Sour' }
-]
+const cocktails = data
 
 const filterCocktails = (cocktailList, input) => {
     if(!input){

@@ -20,7 +20,7 @@ export default function Converter() {
                         <button className="btn btn-primary">Convert oz to ml</button>
                     </div>
                     <div className="col result">
-                        <input value={ml} className="form-control" id="disabledInput" placeholder="Result in ml" disabled/>
+                        <input value={ml + 'ml'} className="form-control" id="disabledInput" placeholder="Result in ml" disabled/>
                     </div>
                 </div>
             </form>

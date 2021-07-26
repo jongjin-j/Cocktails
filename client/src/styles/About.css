@@ -1,0 +1,30 @@
+.aboutPage h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.aboutPage h3 {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.aboutPage p {
+    color: white;
+    font-size: 20px;
+    text-align: start;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+}
+
+.description, .source, .github {
+    width: 80%;
+    justify-self: center;
+    margin-top: 20px;
+}
