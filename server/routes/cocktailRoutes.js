@@ -36,7 +36,7 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
         const ingredientName = apiData[ingredientString]
         const measures = apiData[measureString]
 
-        const ingredientObject = {"name": ingredientName, "measure": measures}
+        const ingredientObject = {"name": ingredientName, "measure": measures, "count": count + 1}
         ingredientsList.push(ingredientObject)
 
         count++

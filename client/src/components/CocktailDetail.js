@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import cocktailService from '../services/cocktailData'
-import Navbar from '../components/Navbar'
+import Navbar from './Navbar'
+import IngredientTable from './IngredientTable'
 import '../styles/Detail.css'
 
 export default function CocktailDetail({ cocktail }) {
@@ -28,19 +29,25 @@ export default function CocktailDetail({ cocktail }) {
     return (
         <div className="detail">
           <Navbar/>
-            <p>{cocktailName}</p>
-            <p>{cocktailGlass}</p>
-            <p>{instructions}</p>
-            <p>{imageLink}</p>
-            <p>Ingredients: </p>
-            {ingredients.map(ingr => {
-              return(
-                <div key={ingr.name}>
-                  <p>{ingr.name}</p>
-                  <p>{ingr.measure}</p>
-                </div>
-              )
-            })}
+
+          <h2>{cocktailName}</h2>
+
+          <div className="detailComponents">
+            <div className="imageContainer">
+              <img src={imageLink} alt="cocktailImage"/>
+              <p>Served in {cocktailGlass}</p>
+            </div>
+          
+            <div className="instructions">
+              <h3>Instructions: </h3>
+              <p>{instructions}</p>
+            </div>
+
+            <div className="ingredientTable">
+              <IngredientTable ingredients={ingredients} />
+            </div>
+
+          </div>
         </div>
     )
 }
