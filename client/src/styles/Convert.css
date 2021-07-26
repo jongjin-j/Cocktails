@@ -1,0 +1,16 @@
+.converter {
+    width: 400px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 70px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+    justify-content: flex-start;
+}
+
+.result {
+    margin-left: -10%;
+}

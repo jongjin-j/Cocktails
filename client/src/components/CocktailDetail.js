@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import cocktailService from '../services/cocktailData'
 import Navbar from './Navbar'
 import IngredientTable from './IngredientTable'
+import Converter from './Converter'
 import '../styles/Detail.css'
 
 export default function CocktailDetail({ cocktail }) {
@@ -30,7 +31,9 @@ export default function CocktailDetail({ cocktail }) {
         <div className="detail">
           <Navbar/>
 
-          <h2>{cocktailName}</h2>
+          <h1>{cocktailName}</h1>
+
+          <Converter/>
 
           <div className="detailComponents">
             <div className="imageContainer">
