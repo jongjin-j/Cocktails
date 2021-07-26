@@ -1,10 +1,10 @@
 import React from 'react'
 import '../styles/Search.css'
 
-export default function Search( {inputHandler} ) {
+export default function Search( {inputHandler, submitHandler} ) {
     return (
         <div className="searchBar">
-            <form>
+            <form onSubmit={submitHandler}>
                 <label>
                     <input 
                         type="text"

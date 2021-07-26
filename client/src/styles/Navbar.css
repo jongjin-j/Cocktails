@@ -1,0 +1,15 @@
+
+#links {
+    display: flex;
+    text-align: right;
+}
+
+.navbarContainer ul {
+    justify-content: flex-end;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+}

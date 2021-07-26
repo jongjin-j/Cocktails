@@ -6,7 +6,7 @@ export default function CocktailList({ filteredList }) {
         <div className="list-group">
             {filteredList.map((c) => {
                 return(
-                    <a href={'/cocktails/' + c.name} class="list-group-item list-group-item-action">{c.name}</a>
+                    <a href={'/cocktails/' + c.name} className="list-group-item list-group-item-action" key={c.name}>{c.name}</a>
                 )
             })}
         </div>

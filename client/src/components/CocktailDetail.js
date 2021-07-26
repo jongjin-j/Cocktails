@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import cocktailService from '../services/cocktailData'
+import Navbar from '../components/Navbar'
+import '../styles/Detail.css'
 
 export default function CocktailDetail({ cocktail }) {
 
@@ -24,7 +26,8 @@ export default function CocktailDetail({ cocktail }) {
   }, [baseURL])
 
     return (
-        <div>
+        <div className="detail">
+          <Navbar/>
             <p>{cocktailName}</p>
             <p>{cocktailGlass}</p>
             <p>{instructions}</p>
