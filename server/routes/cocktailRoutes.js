@@ -18,6 +18,16 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
     
     const apiData = request.data.drinks[0]
 
+    const relatedDrinks = []
+
+    let relatedCount = 1
+
+    while(request.data.drinks[relatedCount] !== undefined){
+        const relatedDrink = request.data.drinks[relatedCount].strDrink
+        relatedDrinks.push(relatedDrink)
+        relatedCount++
+    }
+
     const actualCocktailName = apiData.strDrink
     const cocktailGlass = apiData.strGlass
     const instructions = apiData.strInstructions
@@ -42,13 +52,13 @@ router.get(`/cocktail/:cocktail`, async (req, res) => {
         count++
     }
 
-
     const sendObject = {
         "name": actualCocktailName,
         "cocktailGlass": cocktailGlass, 
         "instructions": instructions,
         "imageLink": imageLink, 
-        "ingredients": ingredientsList
+        "ingredients": ingredientsList,
+        "relatedDrinks": relatedDrinks
     }
 
     res.json(sendObject)
