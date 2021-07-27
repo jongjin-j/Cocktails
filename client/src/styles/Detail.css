@@ -26,6 +26,9 @@
     width: 90%;
 }
 
+.instructions p {
+    font-size: 18px;
+}
 
 .imageContainer {
    display:flex;
@@ -49,4 +52,20 @@
 
 .ingredientTable {
     width: 95%;
+}
+
+.related {
+    margin: 20px 30px;
+}
+
+.buttonsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
+}
+
+.buttonsContainer button {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 18px;
 }
