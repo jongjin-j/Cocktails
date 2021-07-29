@@ -6,7 +6,7 @@ export default function Converter() {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        setMl(e.target[0].value * 30)
+        setMl((e.target[0].value * 30).toFixed(2))
     }
 
     return (
